@@ -3,7 +3,7 @@
 ### Time Complexity
 **Average case:** O(nlogn)
 
-**Worst case:** O(n2) -i.e. when you choose the first element as pivot and it's the smallest value in the list
+**Worst case:** O(n^2) -i.e. when you choose the first element as pivot and it's the smallest value in the list
 
 ### Description
 Quicksort is a divide-and-conquer algorithm. It can be implemented as in-place without having to need
