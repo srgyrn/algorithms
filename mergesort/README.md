@@ -1,11 +1,11 @@
-##Merge sort Algorithm
+## Merge Sort Algorithm
 
-###Time Complexity
+### Time Complexity
 **Average case:** O(nlogn)
 
 **Worst case:** O(nlogn)
 
-###Description
+### Description
 Merge sort is a divide-and-conquer algorithm. It breaks down the given array/slice into two halves and calls itself recursively
 until each sublist has only one element in them. Then, it begins sorting by comparing values of two lists.
 

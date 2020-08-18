@@ -1,16 +1,16 @@
-##Quicksort Algorithm
+## Quicksort Algorithm
 
-###Time Complexity
+### Time Complexity
 **Average case:** O(nlogn)
 
 **Worst case:** O(n2) -i.e. when you choose the first element as pivot and it's the smallest value in the list
 
-###Description
+### Description
 Quicksort is a divide-and-conquer algorithm. It can be implemented as in-place without having to need
 additional space for the resulting list.
 
-Most of the logic is implemented in the partitioning bit.
-During partitioning, a pivot has to be chosen so other values in the list can get compared to it.
+Most of the logic is implemented in the partitioning bit. During partitioning, a pivot has to be chosen 
+so other values in the list can get compared to it.
 When choosing a pivot one can:
 - Pick the first element in the list
 - Pick the last element in the list
