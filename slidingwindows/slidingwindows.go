@@ -24,3 +24,34 @@ func MaxSubSum(arr []int, windowSize int) int {
 	}
 	return maxSum
 }
+
+// SmallestSubArrayWithGivenSum finds the given sum in the smallest contiguous subarray
+func SmallestSubArrayWithGivenSum(arr []int, sum int) int {
+	var s int
+	var count int
+	var windowStart int
+	var minCount int
+
+	for i, v := range arr {
+		s += v
+		count++
+
+		// if s exceeds sum, extract the value at windowStart and windowStart forward until s is less than sum again
+		for s > sum {
+			s -= arr[windowStart]
+			count--
+			windowStart++
+		}
+
+		if s == sum {
+			if minCount == 0 || count < minCount {
+				minCount = count
+			}
+			count = 1
+			s = v
+			windowStart = i
+		}
+	}
+
+	return minCount
+}
