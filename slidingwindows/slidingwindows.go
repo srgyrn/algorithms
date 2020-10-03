@@ -52,3 +52,39 @@ func SmallestSubArrayWithGivenSum(arr []int, sum int) int {
 
 	return minCount
 }
+
+
+// LongestSubstringWithKDistinct finds the longest contiguous subarray with k distinct characters
+func LongestSubstringWithKDistinct(s string, k int) (int, string) {
+	var maxCount int
+	var result string
+	var windowStart int
+	charFrequency := make(map[rune]int, k+1)
+
+	for i, v := range s {
+		if _, ok := charFrequency[v]; !ok {
+			charFrequency[v] = 1
+		} else {
+			charFrequency[v]++
+		}
+
+		if len(charFrequency) > k {
+			count := i - windowStart
+			if maxCount < count {
+				maxCount = count
+				result = s[windowStart:i]
+			}
+
+			for len(charFrequency) >= k {
+				index := rune(s[windowStart])
+				charFrequency[index]--
+				if c := charFrequency[index]; c == 0 {
+					delete(charFrequency, index)
+				}
+				windowStart++
+			}
+		}
+	}
+
+	return maxCount, result
+}

@@ -38,3 +38,43 @@ func TestSmallestSubArrayWithGivenSum(t *testing.T) {
 		}
 	}
 }
+
+func TestLongestSubstringWithKDistinct(t *testing.T) {
+	tests := []struct {
+		s         string
+		k         int
+		wantCount int
+		want      string
+	}{
+		{
+			s:         "araaci",
+			k:         2,
+			wantCount: 4,
+			want:      "araa",
+		},
+		{
+			s:         "araaci",
+			k:         1,
+			wantCount: 2,
+			want:      "aa",
+		},
+		{
+			s:         "cbbebi",
+			k:         3,
+			wantCount: 5,
+			want:      "cbbeb",
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.s, func(t *testing.T) {
+			gotCount, got := LongestSubstringWithKDistinct(tt.s, tt.k)
+			if got != tt.want {
+				t.Errorf("LongestSubstringWithKDistinct() gotCount = '%v', want = '%v'", got, tt.want)
+			}
+			if gotCount != tt.wantCount {
+				t.Errorf("LongestSubstringWithKDistinct() got = %d, want = %d", gotCount, tt.wantCount)
+			}
+
+		})
+	}
+}
